@@ -11,6 +11,7 @@ class TodoList extends Component {
     this.addItem = this.addItem.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
   }
+
   addItem(e) {
     e.preventDefault();
     //console.log(this._inputElement);
@@ -26,6 +27,7 @@ class TodoList extends Component {
           items: prevState.items.concat(newItem)
         };
       });
+
       this._inputElement.value = "";
     }
 
@@ -38,23 +40,21 @@ class TodoList extends Component {
       items: filteredItems
     });
   }
+
   render() {
     return (
       <div>
-        <h1 style={{ textAlign: "center" }}>Simple To-do App</h1>
+        <h1 style={{ color: "white", textAlign: "center" }}>
+          Simple To-do App
+        </h1>
         <div className="app">
-          <form className="form-inline" onSubmit={this.addItem}>
-            <div className="form-group">
-              <input
-                required
-                className="form-control textField"
-                placeholder="Add Task..."
-                ref={e => (this._inputElement = e)}
-              />
-              <button className="btn btn-primary ml-2" type="submit">
-                Add
-              </button>
-            </div>
+          <form onSubmit={this.addItem}>
+            <input
+              required
+              placeholder="Add Task..."
+              ref={e => (this._inputElement = e)}
+            />
+            <button type="submit">Add</button>
           </form>
           <TodoItem entries={this.state.items} deleteItem={this.deleteItem} />
         </div>

@@ -7,11 +7,7 @@ class TodoItem extends Component {
   }
   createTask(item) {
     return (
-      <li
-        className="list-group-item"
-        key={item.key}
-        onClick={() => this.deleteTask(item.key)}
-      >
+      <li key={item.key} onClick={() => this.deleteTask(item.key)}>
         {item.text}
       </li>
     );
@@ -25,7 +21,7 @@ class TodoItem extends Component {
     var todoEntries = this.props.entries;
     console.log(todoEntries);
     var listItems = todoEntries.map(this.createTask);
-    return <ul className="list-group">{listItems}</ul>;
+    return <ul>{listItems}</ul>;
   }
 }
 
