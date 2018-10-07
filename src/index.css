@@ -1,9 +1,7 @@
 body {
-  padding: 10px;
-  background-color: tomato;
+  padding: 50px;
 }
-
 #container {
   display: flex;
-  justify-content: flex;
+  justify-content: flex-start;
 }
