@@ -5,21 +5,38 @@ class TodoItem extends Component {
     super(props);
     this.createTask = this.createTask.bind(this);
   }
+
   createTask(item) {
     return (
-      <li key={item.key} onClick={() => this.deleteTask(item.key)}>
-        {item.text}
+      <li key={item.key}>
+        <p
+          style={
+            item.done
+              ? { textDecoration: "line-through" }
+              : { textDecoration: "none" }
+          }
+        >
+          {item.text}
+        </p>
+        <div>
+          <button onClick={() => this.handleDone(item.key)}>Done</button>
+          <button>Edit</button>
+          <button onClick={() => this.handleDelete(item.key)}>Delete</button>
+        </div>
       </li>
     );
   }
 
-  deleteTask(key) {
+  handleDone(key) {
+    this.props.toggleTodo(key);
+  }
+
+  handleDelete(key) {
     this.props.deleteItem(key);
   }
 
   render() {
     var todoEntries = this.props.entries;
-    console.log(todoEntries);
     var listItems = todoEntries.map(this.createTask);
     return <ul>{listItems}</ul>;
   }
