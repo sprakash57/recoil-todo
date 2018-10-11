@@ -11,6 +11,7 @@ class TodoList extends Component {
 
     this.deleteItem = this.deleteItem.bind(this);
     this.toggleTodo = this.toggleTodo.bind(this);
+    this.updateTodo = this.updateTodo.bind(this);
   }
 
   addItem(e) {
@@ -19,6 +20,7 @@ class TodoList extends Component {
       var newNote = {
         text: this._inputElement.value,
         key: Date.now(),
+        editSaveBtn: "Edit",
         done: false
       };
 
@@ -49,6 +51,21 @@ class TodoList extends Component {
     });
   }
 
+  updateTodo(key) {
+    let todos = [...this.state.items];
+    for (let i = 0; i < todos.length; i++) {
+      if (todos[i].key === key) {
+        todos[i].editSaveBtn =
+          todos[i].editSaveBtn === "Save" ? "Edit" : "Save";
+        todos[i].text = console.log(todos);
+      }
+    }
+
+    this.setState({
+      items: todos
+    });
+  }
+
   render() {
     return (
       <div>
@@ -72,6 +89,7 @@ class TodoList extends Component {
             entries={this.state.items}
             deleteItem={this.deleteItem}
             toggleTodo={this.toggleTodo}
+            updateTodo={this.updateTodo}
           />
         </div>
       </div>
