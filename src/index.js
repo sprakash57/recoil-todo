@@ -1,7 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import TodoList from "./TodoList";
+import App from "./App";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import reducers from "./Reducers/reducer";
 import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
 
-ReactDOM.render(<TodoList />, document.getElementById("container"));
+const store = createStore(reducers);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("container")
+);
