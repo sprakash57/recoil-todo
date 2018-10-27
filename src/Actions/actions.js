@@ -29,7 +29,7 @@ export const editTask = id => {
 };
 
 export const updateText = (text, id) => {
-  console.log(text);
+  //console.log(text);
   return {
     type: "UPDATE_TEXT",
     text,

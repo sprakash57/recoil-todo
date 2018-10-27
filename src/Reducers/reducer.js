@@ -31,7 +31,7 @@ const taskReducer = (state = [], action) => {
         );
 
       case "UPDATE_TEXT":
-        console.log(state);
+        //console.log(state);
         return state.map(
           task =>
             task.id === action.id ? { ...task, text: action.text } : task

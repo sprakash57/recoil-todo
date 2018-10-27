@@ -5,25 +5,19 @@ import Task from "../Components/task";
 class TaskList extends React.Component {
   render() {
     return (
-      <table>
-        <thead>
-          <tr>
-            <th>Task</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
+      <div className="card">
+        <ul className="list-group list-group-flush">
           {this.props.tasks.map((task, index) => (
             <Task key={index} task={task.text} id={index} />
           ))}
-        </tbody>
-      </table>
+        </ul>
+      </div>
     );
   }
 }
 
 const mapStateToProps = state => {
-  console.log(state);
+  //console.log(state);
   return {
     tasks: state.tasks
   };

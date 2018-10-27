@@ -15,11 +15,12 @@ class Task extends React.Component {
   }
 
   render() {
-    console.log(this.props);
+    //console.log(this.props);
     return (
-      <tr>
+      <li className="list-group-item list-item">
         {!this.props.tasks[this.props.id].editable ? (
-          <td
+          <p
+            className="task-content"
             onClick={() => this.props.doneTask(this.props.id)}
             style={
               this.props.tasks[this.props.id].done
@@ -28,27 +29,30 @@ class Task extends React.Component {
             }
           >
             {this.props.tasks[this.props.id].text}
-          </td>
+          </p>
         ) : (
-          <td>
-            <input
-              required
-              type="text"
-              value={this.props.task}
-              onChange={e => this.handleChange(e, this.props.id)}
-            />
-          </td>
+          <input
+            className="edit-text form-control"
+            required
+            type="text"
+            value={this.props.task}
+            onChange={e => this.handleChange(e, this.props.id)}
+          />
         )}
 
-        <td>
-          <button onClick={() => this.props.deleteTask(this.props.id)}>
-            Delete
-          </button>
-          <button onClick={() => this.props.editTask(this.props.id)}>
-            {this.props.tasks[this.props.id].editable ? "Save" : "Edit"}
-          </button>
-        </td>
-      </tr>
+        <button
+          className="btn btn-danger ml-1"
+          onClick={() => this.props.deleteTask(this.props.id)}
+        >
+          X
+        </button>
+        <button
+          className="btn btn-info ml-1"
+          onClick={() => this.props.editTask(this.props.id)}
+        >
+          {this.props.tasks[this.props.id].editable ? "Save" : "Edit"}
+        </button>
+      </li>
     );
   }
 }

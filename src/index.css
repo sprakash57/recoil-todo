@@ -1,0 +1,42 @@
+.app-header {
+  margin-top: 100px;
+  text-align: center;
+}
+
+form {
+  width: 70%;
+  margin: auto;
+}
+
+.edit-text {
+  width: 100% !important;
+  padding: 0.4rem 0.75rem;
+}
+section {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px solid grey;
+}
+
+.task-content {
+  flex-grow: 2;
+  padding: 5px;
+  margin-bottom: 0;
+  font-size: 1.2em;
+}
+
+.card {
+  width: 70%;
+  margin: auto;
+}
+
+.list-item {
+  display: flex;
+  padding: 5px;
+}
+
+.list-item:hover {
+  box-shadow: 0 4px 8px rgba(44, 187, 8, 0.4);
+}
