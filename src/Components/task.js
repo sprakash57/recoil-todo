@@ -50,7 +50,7 @@ class Task extends React.Component {
           className="btn btn-info ml-1"
           onClick={() => this.props.editTask(this.props.id)}
         >
-          {this.props.tasks[this.props.id].editable ? "Save" : "Edit"}
+          {this.props.tasks[this.props.id].editable ? "\uD83D\uDCBE" : "\u270E"}
         </button>
       </li>
     );

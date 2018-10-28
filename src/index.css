@@ -12,13 +12,6 @@ form {
   width: 100% !important;
   padding: 0.4rem 0.75rem;
 }
-section {
-  width: 70%;
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-  border: 2px solid grey;
-}
 
 .task-content {
   flex-grow: 2;

@@ -37,4 +37,17 @@ export const updateText = (text, id) => {
   };
 };
 
-export default { addTask, deleteTask, doneTask, editTask, updateText };
+export const clearAll = () => {
+  return {
+    type: "CLEAR_ALL"
+  };
+};
+
+export default {
+  addTask,
+  deleteTask,
+  doneTask,
+  editTask,
+  updateText,
+  clearAll
+};

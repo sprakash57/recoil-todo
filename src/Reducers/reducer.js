@@ -3,7 +3,7 @@ import { combineReducers } from "redux";
 const taskReducer = (state = [], action) => {
     switch (action.type) {
       case "ADD_TASK":
-        console.log(state);
+        // console.log(state);
         return [
           ...state,
           {
@@ -36,12 +36,13 @@ const taskReducer = (state = [], action) => {
           task =>
             task.id === action.id ? { ...task, text: action.text } : task
         );
-
+      case "CLEAR_ALL":
+        state = state.slice();
+        state = [];
+        return state;
       default:
         return state;
     }
-
-    return state;
   },
   reducers = combineReducers({
     tasks: taskReducer

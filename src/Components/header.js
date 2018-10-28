@@ -1,29 +1,31 @@
 import React from "react";
 import { connect } from "react-redux";
+import _ from "lodash";
 
 class Header extends React.Component {
   constructor() {
     super();
     this.welcomeText = true;
   }
-  // componentWillMount() {
-  //   console.log("Will");
-  //   this.welcomeText = true;
-  //   console.log(this.welcomeText);
-  // }
 
   render() {
-    console.log(this.welcomeText);
+    this.remainingItem = 0;
+    _.forEach(this.props.items, (value, key) => {
+      if (!value.done) {
+        this.remainingItem++;
+      }
+    });
+    console.log(this.props.items);
     return (
       <div className="app-header mb-3">
         {this.welcomeText ? (
           <h1>What to-do?</h1>
         ) : (
           <h1>
-            {this.props.items.length === 0
+            {this.remainingItem === 0
               ? "All done!! Good Job :)"
-              : `You have ${this.props.items.length} pending task${
-                  this.props.items.length > 1 ? "s" : ""
+              : `You have ${this.remainingItem} pending task${
+                  this.remainingItem > 1 ? "s" : ""
                 }`}
           </h1>
         )}

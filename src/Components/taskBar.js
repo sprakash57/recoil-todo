@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { addTask } from "../Actions/actions";
+import { addTask, clearAll } from "../Actions/actions";
 
 class TaskBar extends React.Component {
   constructor() {
@@ -31,13 +31,20 @@ class TaskBar extends React.Component {
         <button type="submit" className="btn btn-primary ml-4">
           Add
         </button>
+        <button
+          type="submit"
+          onClick={() => this.props.clearAll()}
+          className="btn btn-primary ml-2"
+        >
+          Clear All
+        </button>
       </form>
     );
   }
 }
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ addTask }, dispatch);
+  return bindActionCreators({ addTask, clearAll }, dispatch);
 };
 
 export default connect(
