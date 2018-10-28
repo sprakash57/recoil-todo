@@ -39,7 +39,6 @@ class Task extends React.Component {
             onChange={e => this.handleChange(e, this.props.id)}
           />
         )}
-
         <button
           className="btn btn-danger ml-1"
           onClick={() => this.props.deleteTask(this.props.id)}

@@ -16,7 +16,7 @@ const taskReducer = (state = [], action) => {
       case "DELETE_TASK":
         state = state.slice();
         state.splice(action.id, 1);
-        break;
+        return state;
 
       case "DONE_TASK":
         console.log(state, action);
