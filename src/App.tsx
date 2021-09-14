@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import List from 'components/List';
+import Search from 'components/Search';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <main className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://recoiljs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn Recoil
         </a>
       </header>
-    </div>
+      <Search />
+      <List />
+    </main>
   );
 }
 
