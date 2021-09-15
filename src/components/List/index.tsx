@@ -1,6 +1,7 @@
 import ListItem from "components/ListItem";
 import { useRecoilValue } from "recoil"
-import todoListState from "store"
+import { todoListState } from "store/todo";
+
 
 const List = () => {
     const todos = useRecoilValue(todoListState);

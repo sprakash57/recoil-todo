@@ -1,6 +1,6 @@
 import React from "react";
 import { useRecoilState } from "recoil";
-import todoListState from "store";
+import { todoListState } from "store/todo";
 import styles from './index.module.css';
 
 const ListItem = ({ todo }: { todo: Todo }) => {

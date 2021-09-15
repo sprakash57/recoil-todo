@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { useSetRecoilState } from "recoil";
-import todoListState from "store";
+import { todoListState } from "store/todo";
 
 const Search = () => {
     const [todoInput, setTodoInput] = useState("");
