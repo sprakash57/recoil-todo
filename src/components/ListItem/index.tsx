@@ -1,3 +1,4 @@
+import { clsx } from "helpers/utils";
 import React from "react";
 import { useRecoilState } from "recoil";
 import { todoListState } from "store/todo";
@@ -38,14 +39,24 @@ const ListItem = ({ todo }: { todo: Todo }) => {
         setTodoList(newList);
     }
     return (
-        <div>
-            <input type="checkbox" checked={todo.isDone} onChange={checkItem} disabled={todo.isEditable} />
-            {todo.isEditable
-                ? <input type="text" value={todo.text} onChange={editItemText} className={styles.text} />
-                : <span className={todo.isDone ? styles.strike : ""}>{todo.text}</span>
-            }
-            <button onClick={(e) => editItem(e, todo.id)}>{todo.isEditable ? 'Save' : 'Edit'}</button>
-            <button onClick={deleteItem}>Delete</button>
+        <div className={styles.row}>
+            <div className={styles.row__inputs}>
+                <input
+                    type="checkbox"
+                    className={styles.row__inputs__checkbox}
+                    checked={todo.isDone}
+                    onChange={checkItem}
+                    disabled={todo.isEditable}
+                />
+                {todo.isEditable
+                    ? <input type="text" className={styles.row__inputs__text} value={todo.text} onChange={editItemText} />
+                    : <span className={clsx(styles.row__inputs__span, todo.isDone && styles.row__inputs__strike)}>{todo.text}</span>
+                }
+            </div>
+            <div className={styles.row__btn}>
+                <button onClick={(e) => editItem(e, todo.id)}>{todo.isEditable ? 'Save' : 'Edit'}</button>
+                <button onClick={deleteItem}>Delete</button>
+            </div>
         </div>
     )
 }

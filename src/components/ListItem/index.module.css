@@ -1,6 +1,32 @@
-.strike {
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+.row__inputs {
+    display: flex;
+    width: 80%;
+    align-items: center;
+}
+.row__inputs__checkbox {
+    margin: 0.7rem;
+}
+.row__inputs__span {
+    font-size: 1.2rem;
+}
+.row__inputs__strike {
     text-decoration: line-through;
 }
-.text {
-    margin-right: 0.5rem;
+.row__inputs__text {
+    width: 100%;
+    padding: 0.3rem;
+    border-radius: 5px;
+    border: 1px solid;
+}
+.row__btn {
+    display: flex;
+    align-items: center;
+}
+.row__btn button {
+    padding: 0.3rem;
+    margin: 0.1rem;
 }
