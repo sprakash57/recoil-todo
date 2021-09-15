@@ -13,9 +13,9 @@ const ListItem = ({ todo }: { todo: Todo }) => {
         ];
         setTodoList(newList);
     }
-    const editItem = (id: number) => {
+    const editItem = (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
         const newList = todoList.map(item => {
-            if (item.id === id) return { ...item, isEditable: true }
+            if (item.id === id) return { ...item, isEditable: e.currentTarget.textContent === 'Edit' }
             return { ...item, isEditable: false };
         })
         setTodoList(newList);
@@ -39,12 +39,13 @@ const ListItem = ({ todo }: { todo: Todo }) => {
     }
     return (
         <div>
-            {todo.isEditable
-                ? <input type="text" value={todo.text} onChange={editItemText} />
-                : <span className={todo.isDone ? styles.strike : ""} onClick={() => editItem(todo.id)}>{todo.text}</span>
-            }
             <input type="checkbox" checked={todo.isDone} onChange={checkItem} disabled={todo.isEditable} />
-            <button onClick={deleteItem}>X</button>
+            {todo.isEditable
+                ? <input type="text" value={todo.text} onChange={editItemText} className={styles.text} />
+                : <span className={todo.isDone ? styles.strike : ""}>{todo.text}</span>
+            }
+            <button onClick={(e) => editItem(e, todo.id)}>{todo.isEditable ? 'Save' : 'Edit'}</button>
+            <button onClick={deleteItem}>Delete</button>
         </div>
     )
 }

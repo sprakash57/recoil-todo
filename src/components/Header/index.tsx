@@ -1,5 +1,5 @@
 import { AvatarLoader } from 'common-components/Loader';
-import Image from 'components/Image';
+import Image from 'common-components/Image';
 import React from 'react';
 import styles from './index.module.css';
 

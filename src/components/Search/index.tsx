@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { useSetRecoilState } from "recoil";
 import { todoListState } from "store/todo";
+import styles from './index.module.css';
 
 const Search = () => {
     const [todoInput, setTodoInput] = useState("");
@@ -21,9 +22,14 @@ const Search = () => {
         }
     }
     return (
-        <form onSubmit={handleSubmit}>
-            <input type="text" value={todoInput} onChange={(e) => setTodoInput(e.target.value)} />
-            <button>Add</button>
+        <form onSubmit={handleSubmit} className={styles.form}>
+            <input
+                type="text"
+                className={styles.form__input}
+                value={todoInput}
+                onChange={(e) => setTodoInput(e.target.value)}
+            />
+            <button className={styles.form__button}>Add</button>
         </form>
     )
 }
