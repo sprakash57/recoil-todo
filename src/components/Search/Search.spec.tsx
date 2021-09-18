@@ -13,11 +13,7 @@ describe("Search", () => {
     });
 
     it("should have type todo item", () => {
-        const { getByTestId } = render(
-            <RecoilRoot>
-                <Search />
-            </RecoilRoot>
-        );
+        const { getByTestId } = render(<Search />, { wrapper: RecoilRoot });
         const el = getByTestId("todo-input");
         const target = { value: 'todo-item' };
         fireEvent.change(el, { target });
