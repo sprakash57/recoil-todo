@@ -2,7 +2,7 @@ import { atom, selector } from "recoil";
 
 export const filterState = atom({
     key: "filterState",
-    default: "Show All" as Filter
+    default: "All"
 });
 
 export const todoListState = atom({
@@ -13,12 +13,12 @@ export const todoListState = atom({
 export const filterTodoListState = selector({
     key: "filterTodoListState",
     get: ({ get }) => {
-        const filter: Filter = get(filterState);
+        const filter = get(filterState);
         const list: Todo[] = get(todoListState);
         switch (filter) {
-            case "Show Done":
+            case "Done":
                 return list.filter(item => item.isDone);
-            case "Show Active":
+            case "Active":
                 return list.filter(item => !item.isDone);
             default:
                 return list;
@@ -34,7 +34,6 @@ export const todoStatsState = selector({
         const done = list.filter(item => item.isDone).length;
         const active = all - done;
         const donePercentage = all === 0 ? 0 : done * 100 / all;
-
-        return { all, done, active, donePercentage };
+        return { all, active, donePercentage };
     }
 })

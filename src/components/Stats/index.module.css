@@ -1,0 +1,11 @@
+.container {
+    margin: 1rem 0;        
+}
+.container span {
+    border-radius: 10px;
+    background-color: hsl(220, 13%, 18%);
+    padding: 0.5rem;
+    color: white;
+    margin-right: 1rem;
+}
+

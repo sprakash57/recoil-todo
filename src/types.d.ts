@@ -5,8 +5,6 @@ interface Todo {
     isEditable: boolean;
 }
 
-type Filter = "Show All" | "Show Done" | "Show Active";
-
 type User = {
     thumbnail: string;
 }
