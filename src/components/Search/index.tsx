@@ -9,6 +9,7 @@ const Search = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (todoInput.trim()) {
+            console.log("----", todoInput)
             setTodoListState((prev: Todo[]) => [
                 ...prev,
                 {
@@ -22,9 +23,10 @@ const Search = () => {
         }
     }
     return (
-        <form onSubmit={handleSubmit} className={styles.form}>
+        <form onSubmit={handleSubmit} className={styles.form} data-testid="todo-form">
             <input
                 type="text"
+                data-testid="todo-input"
                 className={styles.form__input}
                 value={todoInput}
                 onChange={(e) => setTodoInput(e.target.value)}
