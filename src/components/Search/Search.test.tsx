@@ -9,7 +9,7 @@ describe("Search", () => {
     it("should initialize with empty todo input", () => {
         const { queryByTestId } = render(<Search />, { wrapper: RecoilRoot });
         const input = queryByTestId("todo-input") as HTMLInputElement;
-        expect(input.value).toBe("");
+        expect(input.value).toBe("1");
     });
 
     it("should have type todo item", () => {
