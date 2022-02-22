@@ -1,9 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import { RecoilRoot } from 'recoil';
-import App from '.';
+import Home from 'pages/Home';
 
-test('renders learn react link', () => {
-  render(<App />, { wrapper: RecoilRoot });
-  const linkElement = screen.getByText(/Recoil-todo/i);
-  expect(linkElement).toBeInTheDocument();
+describe('pages::Home', () => {
+  test('renders Add button', () => {
+    render(<Home />, { wrapper: RecoilRoot });
+    const addBtn = screen.getByText(/Add/i);
+    expect(addBtn).toBeInTheDocument();
+  });
 });

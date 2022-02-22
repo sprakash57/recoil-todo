@@ -9,7 +9,6 @@ const Search = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (todoInput.trim()) {
-            console.log("----", todoInput)
             setTodoListState((prev: Todo[]) => [
                 ...prev,
                 {
