@@ -1,5 +1,7 @@
 # Recoil-todo
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8ff88011-6134-44a9-9887-efe1b026bc62/deploy-status)](https://app.netlify.com/sites/recoiltodo/deploys)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Its a simple to-do app built using <a href="https://recoiljs.org/">Recoil</a>.
 
 ## Available Scripts
