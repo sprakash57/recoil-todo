@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { useSetRecoilState } from "recoil";
-import { todoListState } from "store/todo";
+import { Todo, todoListState } from "store/todo";
 import styles from './index.module.css';
 
 const Search = () => {

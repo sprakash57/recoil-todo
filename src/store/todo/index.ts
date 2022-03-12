@@ -1,5 +1,12 @@
 import { atom, selector } from "recoil";
 
+export interface Todo {
+    id: number;
+    text: string;
+    isDone: boolean;
+    isEditable: boolean;
+}
+
 export const filterState = atom({
     key: "filterState",
     default: "All"

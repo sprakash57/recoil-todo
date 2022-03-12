@@ -1,7 +1,7 @@
 import { renderHook, WrapperComponent, cleanup } from '@testing-library/react-hooks';
 import { useEffect } from 'react';
 import { MutableSnapshot, RecoilRoot, useRecoilValue, useSetRecoilState } from 'recoil';
-import { todoListState } from '.';
+import { Todo, todoListState } from '.';
 
 type TRecoilRoot = WrapperComponent<{ initState: ((mutableSnapshot: MutableSnapshot) => void) }>;
 

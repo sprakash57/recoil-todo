@@ -1,7 +1,7 @@
 import { clsx } from "helpers/utils";
 import React from "react";
 import { useRecoilState } from "recoil";
-import { todoListState } from "store/todo";
+import { Todo, todoListState } from "store/todo";
 import styles from './index.module.css';
 
 const ListItem = ({ todo }: { todo: Todo }) => {

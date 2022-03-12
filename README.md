@@ -36,3 +36,4 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - React
 - TypeScript
 - Recoil
+- [Rollbar](https://rollbar.com/sunny.prakashgm/recoil-todo)
