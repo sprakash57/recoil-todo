@@ -1,9 +1,18 @@
 import { render, screen } from '@testing-library/react';
 import { RecoilRoot } from 'recoil';
-import App from '.';
+import Home from 'pages/Home';
+import { Suspense } from 'react';
 
-test('renders learn react link', () => {
-  render(<App />, { wrapper: RecoilRoot });
-  const linkElement = screen.getByText(/Recoil-todo/i);
-  expect(linkElement).toBeInTheDocument();
+describe('pages::Home', () => {
+  test('renders Add button', async () => {
+    render(
+      <Suspense fallback={<div>Loading...</div>}>
+        <RecoilRoot>
+          <Home />
+        </RecoilRoot>
+      </Suspense>
+    );
+    const addBtn = await screen.findByText(/Add/i);
+    expect(addBtn).toBeInTheDocument();
+  });
 });

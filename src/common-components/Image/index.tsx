@@ -3,10 +3,10 @@ import { userState } from "store/header";
 import styles from './index.module.css';
 
 const Image = () => {
-    const user: User = useRecoilValue(userState);
+    const { picture } = useRecoilValue(userState);
     return (
         <figure>
-            <img src={user.thumbnail} alt="Avatar" className={styles.img} />
+            <img src={picture.thumbnail} alt="Avatar" className={styles.img} />
         </figure>
     )
 }

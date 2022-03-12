@@ -1,6 +1,6 @@
-import { cleanup, fireEvent, render } from '@testing-library/react';
-import Search from './index';
 import { RecoilRoot } from 'recoil';
+import { cleanup, fireEvent, render } from '@testing-library/react';
+import Search from 'components/Search';
 
 describe("Search", () => {
 

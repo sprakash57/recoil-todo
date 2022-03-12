@@ -1,10 +1,20 @@
 import { selector } from "recoil";
 
-export const userState = selector({
+interface User {
+    email: string;
+    picture: {
+        thumbnail: string;
+        large: string;
+        medium: string;
+    }
+}
+
+export const userState = selector<User>({
     key: "UserState",
     get: async () => {
-        const response = await fetch("https://randomuser.me/api/?inc=picture");
+        const response = await fetch("https://randomuser.me/api/?inc=picture,email");
         const data = await response.json();
-        return data.results[0].picture;
+        const { picture, email } = data.results[0];
+        return { picture, email }
     }
 })

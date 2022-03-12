@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { useSetRecoilState } from "recoil";
-import { todoListState } from "store/todo";
+import { Todo, todoListState } from "store/todo";
 import styles from './index.module.css';
 
 const Search = () => {
@@ -9,7 +9,6 @@ const Search = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (todoInput.trim()) {
-            console.log("----", todoInput)
             setTodoListState((prev: Todo[]) => [
                 ...prev,
                 {
