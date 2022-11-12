@@ -22,5 +22,5 @@ jobs:
         uses: treosh/lighthouse-ci-action@v9
         with:
           urls: "https://recoiltodo.netlify.app"
-          budgetPath: ./budget.json
-          configPath: ./lighthouserc.json
+          budgetPath: ".github/configs/budget.json"
+          configPath: ".github/configs/lighthouserc.json"
