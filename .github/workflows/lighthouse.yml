@@ -20,7 +20,6 @@ jobs:
         with:
           accessToken: ${{ secrets.GH_TOKEN }}
           urls: "https://recoiltodo.netlify.app"
-          outputDirectory: /tmp/artifacts
       - name: Verify Lighthouse reports
         uses: ./
         with:
