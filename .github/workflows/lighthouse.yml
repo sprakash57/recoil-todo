@@ -1,7 +1,6 @@
-name: Check Lighthouse
+name: Check Lighthouse score
 
 on:
-  # Runs on pushes targeting the default branch
   pull_request:
     branches: ["master"]
 
@@ -9,16 +8,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  check-lighthouse:
+  verify-lighthouse:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Run Lighthouse
+      - name: Generate Lighthouse scores
         uses: foo-software/lighthouse-check-action@master
         with:
           accessToken: ${{ secrets.GH_TOKEN }}
           urls: "https://recoiltodo.netlify.app"
-      - name: Verify Lighthouse reports
+      - name: Verify scores
         uses: treosh/lighthouse-ci-action@v9
         with:
           urls: "https://recoiltodo.netlify.app"
