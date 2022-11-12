@@ -13,10 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - run: yarn
       - name: Run Lighthouse
         uses: foo-software/lighthouse-check-action@master
-        id: lighthouseScore
         with:
           accessToken: ${{ secrets.GH_TOKEN }}
           urls: "https://recoiltodo.netlify.app"
