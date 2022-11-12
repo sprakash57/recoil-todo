@@ -21,11 +21,8 @@ jobs:
           accessToken: ${{ secrets.GH_TOKEN }}
           urls: "https://recoiltodo.netlify.app"
       - name: Verify Lighthouse reports
-        uses: ./
+        uses: treosh/lighthouse-ci-action@v9
         with:
-          lighthouseCheckResults: ${{ steps.lighthouseScore.outputs.lighthouseCheckResults }}
-          minAccessibilityScore: "30"
-          minBestPracticesScore: "50"
-          minPerformanceScore: "50"
-          minProgressiveWebAppScore: "50"
-          minSeoScore: "50"
+          urls: "https://recoiltodo.netlify.app"
+          budgetPath: ./budget.json
+          configPath: "./lighthouserc.json"
