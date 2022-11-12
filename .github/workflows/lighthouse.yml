@@ -18,15 +18,15 @@ jobs:
         run: mkdir /tmp/artifacts
       - name: Run Lighthouse
         uses: foo-software/lighthouse-check-action@master
-        id: runLighthouseResults
+        id: lighthouseScore
         with:
           accessToken: ${{ secrets.GH_TOKEN }}
           urls: "https://recoiltodo.netlify.app"
           outputDirectory: /tmp/artifacts
       - name: Verify Lighthouse reports
-        uses: foo-software/lighthouse-check-status-action@master
+        uses: ./
         with:
-          lighthouseCheckResults: ${{ steps.lighthouseCheck.outputs.runLighthouseResults }}
+          lighthouseCheckResults: ${{ steps.lighthouseCheck.outputs.lighthouseScore }}
           minAccessibilityScore: "30"
           minBestPracticesScore: "50"
           minPerformanceScore: "50"
