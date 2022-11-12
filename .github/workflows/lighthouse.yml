@@ -17,12 +17,12 @@ jobs:
       - name: Create artifacts
         run: mkdir /tmp/artifacts
       - name: Run Lighthouse
-        uses: jakejarvis/lighthouse-action@master
+        uses: foo-software/lighthouse-check-action@master
         with:
-          netlify_site: "recoiltodo.netlify.app"
+          urls: "https://recoiltodo.netlify.app"
           outputDirectory: /tmp/artifacts
       - name: Upload artifacts
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@master
         with:
           name: lighthouse-report
           path: "/tmp/artifacts"
