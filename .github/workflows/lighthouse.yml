@@ -23,4 +23,4 @@ jobs:
         with:
           urls: "https://recoiltodo.netlify.app"
           budgetPath: ./budget.json
-          configPath: "./lighthouserc.json"
+          configPath: ./lighthouserc.json
