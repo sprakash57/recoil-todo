@@ -11,15 +11,16 @@ jobs:
   verify-lighthouse:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - name: Generate Lighthouse scores
-        uses: foo-software/lighthouse-check-action@master
-        with:
-          accessToken: ${{ secrets.GH_TOKEN }}
-          urls: "https://recoiltodo.netlify.app"
+      - uses: actions/checkout@v3
       - name: Verify scores
+        id: LHCIAction
         uses: treosh/lighthouse-ci-action@v9
         with:
           urls: "https://recoiltodo.netlify.app"
           budgetPath: ".github/configs/budget.json"
           configPath: ".github/configs/lighthouserc.json"
+      - name: Display Lighthouse report
+        uses: manrueda/lighthouse-report-action@v1.0.1
+        with:
+          reports: ".lighthouseci"
+          github-token: ${{ secrets.GH_TOKEN }}
