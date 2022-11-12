@@ -12,10 +12,8 @@ jobs:
   check-lighthouse:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Create artifacts
-        run: mkdir /tmp/artifacts
+      - uses: actions/checkout@master
+      - run: yarn
       - name: Run Lighthouse
         uses: foo-software/lighthouse-check-action@master
         id: lighthouseScore
@@ -26,14 +24,9 @@ jobs:
       - name: Verify Lighthouse reports
         uses: ./
         with:
-          lighthouseCheckResults: ${{ steps.lighthouseCheck.outputs.lighthouseScore }}
+          lighthouseCheckResults: ${{ steps.lighthouseScore.outputs.lighthouseCheckResults }}
           minAccessibilityScore: "30"
           minBestPracticesScore: "50"
           minPerformanceScore: "50"
           minProgressiveWebAppScore: "50"
           minSeoScore: "50"
-      - name: Upload artifacts
-        uses: actions/upload-artifact@master
-        with:
-          name: lighthouse-report
-          path: "/tmp/artifacts"
