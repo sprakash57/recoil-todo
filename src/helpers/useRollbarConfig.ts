@@ -21,7 +21,7 @@ const useRollbarConfig = () => {
                 client: {
                     javascript: {
                         source_map_enabled: true,
-                        code_version: "2",
+                        code_version: "3",
                         guess_uncaught_frames: true
                     }
                 }
