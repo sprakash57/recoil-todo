@@ -18,6 +18,13 @@ const useRollbarConfig = () => {
             payload: {
                 person: { id: email, email },
                 environment: process.env.NODE_ENV,
+                client: {
+                    javascript: {
+                        source_map_enabled: true,
+                        code_version: "2",
+                        guess_uncaught_frames: true
+                    }
+                }
             }
         });
         setRollbar(rollbar);
