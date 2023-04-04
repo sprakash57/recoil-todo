@@ -10,7 +10,6 @@
 
 # production
 /build
-/source_maps
 
 # misc
 .env
