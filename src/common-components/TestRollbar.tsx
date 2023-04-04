@@ -3,11 +3,14 @@ const TestRollbar = () => {
     throw new Error("Random error occured");
   };
 
-  if (process.env.NODE_ENV !== "development") return null;
+  const throwPromise = () => {
+    Promise.reject("Rejected Promise XXXXX")
+  }
 
   return (
     <div style={{ textAlign: "center" }}>
-      <button onClick={throwError}>Test Rollbar</button>
+      <button onClick={throwError}>Random Error</button>
+      <button onClick={throwPromise}>Promise Rejection</button>
     </div>
   );
 };
